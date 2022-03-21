@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class DW1FontTool extends Application {
     private static DW1FontTool instance;
-
+    
     public DW1FontTool() {
         synchronized (DW1FontTool.class) {
             if (instance == null)
