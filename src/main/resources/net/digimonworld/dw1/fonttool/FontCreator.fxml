@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Scene fx:id="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.digimonworld.dw1.fonttool.CreatorController">
+   <BorderPane>
+      <top>
+         <MenuBar prefHeight="27.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+           <menus>
+             <Menu mnemonicParsing="false" text="File">
+               <items>
+                 <MenuItem mnemonicParsing="false" onAction="#actionNew" text="New" />
+                     <MenuItem mnemonicParsing="false" onAction="#actionLoad" text="Load" />
+                     <MenuItem mnemonicParsing="false" onAction="#actionSave" text="Save" />
+                     <MenuItem mnemonicParsing="false" onAction="#actionExportAsCPP" text="Export CPP" />
+               </items>
+             </Menu>
+           </menus>
+         </MenuBar>
+      </top>
+      <center>
+         <BorderPane BorderPane.alignment="CENTER">
+            <center>
+               <BorderPane BorderPane.alignment="CENTER">
+                  <center>
+                     <Pane minHeight="512.0" minWidth="512.0">
+                        <children>
+                           <ImageView fx:id="glyphPixel" onMouseClicked="#gridClicked" pickOnBounds="true" preserveRatio="true" />
+                        </children>
+                     </Pane>
+                  </center>
+                  <bottom>
+                     <FlowPane prefHeight="30.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <children>
+                           <Label text="Width: " />
+                           <Spinner fx:id="widthSpinner" prefHeight="26.0" prefWidth="106.0">
+                                     <valueFactory>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="4" max="16" min="1" />
+          </valueFactory></Spinner>
+                        </children>
+                     </FlowPane>
+                  </bottom>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </BorderPane>
+            </center>
+            <BorderPane.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </BorderPane.margin>
+            <right>
+               <SplitPane dividerPositions="0.5" BorderPane.alignment="CENTER">
+                  <items>
+                     <BorderPane>
+                        <center>
+                           <ListView fx:id="glyphList" prefWidth="200.0" />
+                        </center>
+                        <bottom>
+                           <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                             <buttons>
+                                 <TextField fx:id="addInput" onAction="#onAdd" promptText="new glyph" />
+                                 <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAdd" text="Add" />
+                             </buttons>
+                           </ButtonBar>
+                        </bottom>
+                        <top>
+                           <FlowPane prefHeight="35.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                              <children>
+                                 <Label text="Height: " />
+                                 <Spinner fx:id="heightSpinner" prefHeight="26.0" prefWidth="141.0">
+                                           <valueFactory>
+                  <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="8" max="16" min="1" />
+                </valueFactory>
+                                 </Spinner>
+                              </children>
+                           </FlowPane>
+                        </top>
+                     </BorderPane>
+                     <BorderPane prefHeight="200.0" prefWidth="200.0">
+                        <center>
+                           <ListView fx:id="mappingsList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        </center>
+                        <bottom>
+                           <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                             <buttons>
+                                 <TextField fx:id="addMappingInput" onAction="#onAddMapping" promptText="Map to selected" />
+                             </buttons>
+                           </ButtonBar>
+                        </bottom>
+                        <top>
+                           <Label text="Mappings" BorderPane.alignment="CENTER" />
+                        </top>
+                     </BorderPane>
+                  </items>
+               </SplitPane>
+            </right>
+         </BorderPane>
+      </center>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+   </BorderPane>
+</Scene>
